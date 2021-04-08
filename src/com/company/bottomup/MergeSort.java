@@ -6,18 +6,13 @@ public class MergeSort extends AbstractSort {
 
     public static void sort(int[] elements) {
         int[] aux = new int[elements.length];
-        sort(elements, aux, 0, elements.length - 1);
-    }
-
-    private static void sort(int[] elements, int[] aux, int low, int high) {
-        if (high <= low) {
-            return;
+        for (int size = 1; size < elements.length; size *= 2) {
+            for (int low = 0; low < elements.length - size; low += 2 * size) {
+                int mid = low + size - 1;
+                int high = Math.min(low + 2 * size - 1, elements.length - 1);
+                merge(elements, aux, low, mid, high);
+            }
         }
-
-        int mid = low + (high - low) / 2;
-        sort(elements, aux, low, mid);
-        sort(elements, aux, mid + 1, high);
-        merge(elements, aux, low, mid, high);
     }
 
     private static void merge(int[] elements, int[] aux, int low, int mid, int high) {
