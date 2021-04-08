@@ -4,8 +4,8 @@ import com.company.AbstractSort;
 
 public class MergeSort extends AbstractSort {
 
-    public static void sort(int[] elements) {
-        int[] aux = new int[elements.length];
+    public static void sort(Comparable[] elements) {
+        Comparable[] aux = new Comparable[elements.length];
         for (int size = 1; size < elements.length; size *= 2) {
             for (int low = 0; low < elements.length - size; low += 2 * size) {
                 int mid = low + size - 1;
@@ -15,7 +15,7 @@ public class MergeSort extends AbstractSort {
         }
     }
 
-    private static void merge(int[] elements, int[] aux, int low, int mid, int high) {
+    private static void merge(Comparable[] elements, Comparable[] aux, int low, int mid, int high) {
 
         for (int k = low; k <= high; k++) {
             aux[k] = elements[k];
