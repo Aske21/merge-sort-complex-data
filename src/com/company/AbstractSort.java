@@ -11,6 +11,7 @@ public class AbstractSort {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     public static void swap(Comparable[] elements, int a, int b) {
         Comparable tmp = elements[a];
         elements[a] = elements[b];
